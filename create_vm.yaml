@@ -16,7 +16,7 @@
       password: Qq123456
       validate_certs: no
       name: Denemebgc
-      template: rhel-7-bgc-template
+      template: Denemebgc1
       datacenter: Konsalt-MESA
       folder: /RedHat/RHEL
       state: poweredon
