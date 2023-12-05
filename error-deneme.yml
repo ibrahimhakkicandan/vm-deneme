@@ -1,0 +1,16 @@
+---
+- name: Extract error message
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Set example error message
+      set_fact:
+        error_message: 'Exception setting "RemoteIPRanges": "Cannot convert value "System.Object[]" to type Microsoft.Exchange.Data.MultiValuedProperty`1[Microsoft.Exchange.Data.IPRange]". Error: "The value ''10.6.38.248'' is already present in the collection."'
+
+    - name: Extract error text
+      set_fact:
+        extracted_error: "{{ error_message | regex_search('Error: "(.+?)\."') | default('', true) }}"
+
+    - name: Display extracted error text
+      debug:
+        var: extracted_error
