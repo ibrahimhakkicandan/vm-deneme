@@ -9,7 +9,7 @@
 
     - name: Extract error text
       set_fact:
-        extracted_error: "{{ error_message | regex_search('Error: "(.+?)\."') | default('', true) }}"
+        extracted_error: "{{ error_message | regex_search('Error: \"(.+?)\.\"') | default('', true) }}"
 
     - name: Display extracted error text
       debug:
